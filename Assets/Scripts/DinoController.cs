@@ -11,6 +11,8 @@ public class DinoController : MonoBehaviour
     private float x;
     private float z;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {

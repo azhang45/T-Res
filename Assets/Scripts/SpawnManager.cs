@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -10,6 +11,15 @@ public class SpawnManager : MonoBehaviour
     private float max = 980;
     private float min = 970;
     private Cactus[] cactusList;
+    private bool accounted = false;
+
+    public GameOverScreen GameOverScreen;
+    int score = 0;
+    float timer = 30;
+
+    public void GameOver(){
+        GameOverScreen.Setup(score);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -27,13 +37,33 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
         cactusList = FindObjectsOfType<Cactus>();
         cactusCount = cactusList.Length;
-        if(cactusCount < 6){
-            float[] arr = {cactusList[0].transform.position.x, cactusList[1].transform.position.x, 
+        float[] arr = null;
+        if(cactusCount >= 6){
+            arr = new float[] {cactusList[0].transform.position.x, cactusList[1].transform.position.x, 
+                cactusList[2].transform.position.x, cactusList[3].transform.position.x, cactusList[4].transform.position.x, cactusList[5].transform.position.x};
+        }
+        
+
+        if(cactusCount >= 6 && arr.Max() > 992 && !accounted){
+            score++;
+            accounted = true;
+        }
+        
+        if (timer <= 0){
+            GameOver();
+            for(int i = 0; i < cactusCount; i++){
+                Destroy(cactusList[i]);
+            }
+        }
+        
+        else if(cactusCount < 6){
+            float[] arr2 = {cactusList[0].transform.position.x, cactusList[1].transform.position.x, 
                 cactusList[2].transform.position.x, cactusList[3].transform.position.x, cactusList[4].transform.position.x};
-            //max = cactusList[(int)cactusCount-1].transform.position.x;
-            max = arr.Min();
+            max = arr2.Min();
+            accounted = false;
             Instantiate(cactusPrefab, GenerateSpawn(max-40, max-20), cactusPrefab.transform.rotation);
         }
     }

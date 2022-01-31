@@ -16,7 +16,7 @@ public class Cactus : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        if(transform.position.x > 1000){
+        if(transform.position.x > 995){
             Destroy(gameObject);
         }
     }
