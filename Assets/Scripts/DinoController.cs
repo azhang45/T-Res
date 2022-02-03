@@ -20,6 +20,11 @@ public class DinoController : MonoBehaviour
         z = transform.position.z;
     }
 
+    public bool OnCollisionEnter(Collision collision)
+    {
+        return collision.rigidbody;
+    }
+
     // Update is called once per frame
     void Update()
     {
