@@ -15,10 +15,12 @@ public class SpawnManager : MonoBehaviour
 
     public GameOverScreen GameOverScreen;
     int score = 0;
-    float timer = 30;
+    float testTimer = 30;
+    public ScoreText ScoreText;
 
     public void GameOver(){
         GameOverScreen.Setup(score);
+        ScoreText.End();
     }
     // Start is called before the first frame update
     void Start()
@@ -37,10 +39,14 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
+        testTimer -= Time.deltaTime;
+
+        ScoreText.Setup(score);
+
         cactusList = FindObjectsOfType<Cactus>();
         cactusCount = cactusList.Length;
         float[] arr = null;
+
         if(cactusCount >= 6){
             arr = new float[] {cactusList[0].transform.position.x, cactusList[1].transform.position.x, 
                 cactusList[2].transform.position.x, cactusList[3].transform.position.x, cactusList[4].transform.position.x, cactusList[5].transform.position.x};
@@ -52,7 +58,7 @@ public class SpawnManager : MonoBehaviour
             accounted = true;
         }
         
-        if (timer <= 0){
+        if (testTimer <= 0){
             GameOver();
             for(int i = 0; i < cactusCount; i++){
                 Destroy(cactusList[i]);

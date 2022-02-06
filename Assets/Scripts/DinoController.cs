@@ -7,7 +7,7 @@ public class DinoController : MonoBehaviour
     private float jumpInput;
     private float jumpHeight = 10.0f;
     private float timer = 0.0f;
-    private float jumpTime = 0.7f;
+    private float jumpTime = 1.0f;
     private float x;
     private float z;
 
@@ -24,22 +24,22 @@ public class DinoController : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-
+        
         if(timer > 0.7){
             jumpInput = Input.GetAxis("Jump");
-            transform.Translate(Vector3.up * jumpHeight * jumpInput * Time.deltaTime);
+            transform.Translate(Vector3.forward * jumpHeight * jumpInput * Time.deltaTime);
             if (jumpInput > 0){
                 jumpTime -= Time.deltaTime;
                 if(jumpTime <= 0){
-                    jumpTime = 0.7f;
+                    jumpTime = 1.0f;
                     timer = 0.0f;
                 } 
             }
             else{
-                jumpTime = 0.7f;
+                jumpTime = 1.0f;
             }
         }
-        transform.localRotation = Quaternion.Euler(0, -90, 0);
+        transform.localRotation = Quaternion.Euler(-90, 180, 0);
         if(transform.position.x != 990 || transform.position.z != 500){
             transform.position = new Vector3(990, transform.position.y, 500);
         }
