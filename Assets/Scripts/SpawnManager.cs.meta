@@ -3,7 +3,11 @@ guid: 5e41b459d25de514285f6987c5489336
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cactusPrefab: {fileID: 5824699293656900291, guid: efbee046e1951464da207cc7216bd3b0, type: 3}
+  - birdPrefab: {fileID: 8321112299260492434, guid: 31e7581d7e37c1749b26030fbc9896df, type: 3}
+  - GameOverScreen: {instanceID: 0}
+  - ScoreText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

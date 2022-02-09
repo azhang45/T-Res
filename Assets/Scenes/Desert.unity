@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c84289e1cd1c374199abe7dfb01e8a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnManager: {fileID: 635908287}
+  over: 0
 --- !u!54 &90959191
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -352,6 +354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c84289e1cd1c374199abe7dfb01e8a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnManager: {fileID: 0}
+  over: 0
 --- !u!65 &123642360
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -800,9 +804,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cactusPrefab: {fileID: 5824699293656900291, guid: efbee046e1951464da207cc7216bd3b0, type: 3}
   cactusCount: 0
+  birdPrefab: {fileID: 8321112299260492434, guid: 31e7581d7e37c1749b26030fbc9896df, type: 3}
+  birdCount: 0
   GameOverScreen: {fileID: 1145886728}
   ScoreText: {fileID: 478866686}
-  speed: 5
+  DinoController: {fileID: 90959190}
 --- !u!4 &635908288
 Transform:
   m_ObjectHideFlags: 0
