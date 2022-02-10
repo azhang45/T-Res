@@ -15,7 +15,7 @@ public class DinoController : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "Cactus(Clone)" || collision.gameObject.name == "Bird(Clone)"){
+        if(collision.gameObject.name == "cactusCOLOR(Clone)" || collision.gameObject.name == "birdcolor(Clone)"){
             SpawnManager.GameOver();
             over = true;
         }

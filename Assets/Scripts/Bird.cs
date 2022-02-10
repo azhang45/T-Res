@@ -8,7 +8,7 @@ public class Bird : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 10.0f;
+        speed = 12.0f;
     }
 
     // Update is called once per frame
