@@ -32,7 +32,7 @@ public class SpawnManager : MonoBehaviour
     {
         for(int i = 0; i < 6; i++){
             Instantiate(cactusPrefab, GenerateSpawn(min, max,0), cactusPrefab.transform.rotation);
-            Instantiate(birdPrefab, GenerateSpawn(min, max,8.5f), birdPrefab.transform.rotation);
+            Instantiate(birdPrefab, GenerateSpawn(min, max,7.5f), birdPrefab.transform.rotation);
             min -= 20;
             max -= 20;
         }
@@ -94,7 +94,7 @@ public class SpawnManager : MonoBehaviour
                 float[] brr2 = {birdList[0].transform.position.x, birdList[1].transform.position.x, 
                 birdList[2].transform.position.x, birdList[3].transform.position.x, birdList[4].transform.position.x};
                 max = brr2.Min();
-                Instantiate(birdPrefab, GenerateSpawn(max-40, max-20,8.5f), birdPrefab.transform.rotation);
+                Instantiate(birdPrefab, GenerateSpawn(max-40, max-20,7.5f), birdPrefab.transform.rotation);
             }
             
         }
